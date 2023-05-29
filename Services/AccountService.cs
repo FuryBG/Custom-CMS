@@ -1,0 +1,31 @@
+﻿using Microsoft.EntityFrameworkCore;
+using WebApplication1.DataAccess;
+
+namespace WebApplication1.Services
+{
+    public class AccountService
+    {
+        private AuthDbContext _dbContext;
+        public AccountService(AuthDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+        public User? GetUser(string email)
+        {
+            return _dbContext.Users.Where(u => u.Email == email).FirstOrDefault();
+        }
+
+        public void UpdateUser(User user) 
+        { 
+            _dbContext.Users.Update(user);
+            _dbContext.SaveChanges(); 
+        }
+
+        public void CreateUser(User user)
+        {
+            _dbContext.Users.Add(user);
+            _dbContext.SaveChanges();
+        }
+    }
+}
