@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Security.Claims;
 using System.Text;
+using WebApplication1.Models;
 using WebApplication1.DataAccess;
 
 namespace WebApplication1.Shared

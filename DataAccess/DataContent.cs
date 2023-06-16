@@ -17,6 +17,6 @@ namespace WebApplication1.DataAccess
         public string Keywords { get; set; }
         public string Code { get; set; }
         public string MainImageUrl { get; set; }
-        
+        public int ParentId { get; set; }
     }
 }
