@@ -6,8 +6,8 @@ namespace WebApplication1.Services
 {
     public class AccountService
     {
-        private AuthDbContext _dbContext;
-        public AccountService(AuthDbContext dbContext)
+        private CmsDbContext _dbContext;
+        public AccountService(CmsDbContext dbContext)
         {
             _dbContext = dbContext;
         }

@@ -9,7 +9,7 @@ using WebApplication1.DataAccess;
 
 namespace WebApplication1.Migrations
 {
-    [DbContext(typeof(AuthDbContext))]
+    [DbContext(typeof(CmsDbContext))]
     [Migration("20230527175400_UpdatedUserRole")]
     partial class UpdatedUserRole
     {

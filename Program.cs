@@ -16,7 +16,7 @@ namespace WebApplication1
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
-            builder.Services.AddDbContext<AuthDbContext>(options =>
+            builder.Services.AddDbContext<CmsDbContext>(options =>
             {
                 options.UseSqlite(builder.Configuration.GetConnectionString("AuthDbConnectionString"));
             });

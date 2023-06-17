@@ -8,7 +8,7 @@ using WebApplication1.DataAccess;
 
 namespace WebApplication1.Migrations
 {
-    [DbContext(typeof(AuthDbContext))]
+    [DbContext(typeof(CmsDbContext))]
     partial class AuthDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -57,18 +57,7 @@ namespace WebApplication1.Migrations
                     b.ToTable("DataContent");
                 });
 
-            modelBuilder.Entity("WebApplication1.DataAccess.DatatoData", b =>
-                {
-                    b.Property<int>("DataId1")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("DataId2")
-                        .HasColumnType("INTEGER");
-
-                    b.ToTable("DatatoData");
-                });
-
-            modelBuilder.Entity("WebApplication1.DataAccess.User", b =>
+            modelBuilder.Entity("WebApplication1.Models.User", b =>
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
