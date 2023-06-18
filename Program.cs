@@ -23,6 +23,7 @@ namespace WebApplication1
             builder.Services.AddScoped<AccountService, AccountService>();
             builder.Services.AddScoped<PasswordManager, PasswordManager>();
             builder.Services.AddScoped<FileService, FileService>();
+            builder.Services.AddScoped<CmsService, CmsService>();
             builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 
             var app = builder.Build();
