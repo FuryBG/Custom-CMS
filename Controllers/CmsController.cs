@@ -20,17 +20,17 @@ namespace WebApplication1.Controllers
             PageModel pageModel = _CmsService.GetPageData();
             return View(pageModel);
         }
-        public IActionResult Categories()
+        public IActionResult Category(int categoryId)
         {
             PageModel pageModel = _CmsService.GetPageData();
             return View(pageModel);
         }
-        public IActionResult Articles()
+        public IActionResult Article(int articleId)
         {
             PageModel pageModel = _CmsService.GetPageData();
             return View(pageModel);
         }
-        public IActionResult Images()
+        public IActionResult Image(int imageId)
         {
             PageModel pageModel = _CmsService.GetPageData();
             return View(pageModel);

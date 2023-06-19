@@ -5,13 +5,13 @@
 
     switch(controllerName)
     {
-        case "Categories":
+        case "Category":
             <partial name="~/Views/Shared/CategoryAside.cshtml" model="@Model.Categories" />
             break;
-        case "Articles":
+        case "Article":
             <partial name="~/Views/Shared/ArticleAside.cshtml" model="@Model.Articles" />
             break;
-        case "Images":
+        case "Image":
             <partial name="~/Views/Shared/ImageAside.cshtml" model="@Model.Images" />
             break;
         default: break;
