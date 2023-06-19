@@ -1,0 +1,12 @@
+﻿@model List<Article>
+@{
+
+}
+<div>
+    @{
+        foreach (Article article in Model)
+        {
+            <h3>@article.Title</h3>
+        }
+    }
+</div>

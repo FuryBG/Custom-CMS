@@ -1,7 +1,4 @@
-﻿@model List<Image>
-    @{
-    foreach (Image image in Model)
-        {
-        <h1>@image.Title</h1>
-        }
-    }
+﻿@model PageModel
+@{
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}

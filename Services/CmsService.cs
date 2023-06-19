@@ -17,9 +17,19 @@ namespace WebApplication1.Services
             return _dbContext.Category.ToList();
         }
 
+        public List<Article>? GetArticles()
+        {
+            return _dbContext.Article.ToList();
+        }
+
+        public List<Image>? GetImages()
+        {
+            return _dbContext.Image.ToList();
+        }
+
         public Category? GetCategoryById(int categoryId)
         {
-            return _dbContext.Category.Where(c => c.CategoryId == categoryId).FirstOrDefault();
+            return _dbContext.Category.Where(c => c.Id == categoryId).FirstOrDefault();
         }
 
         public void UpdateCategory(Category category)
@@ -32,6 +42,15 @@ namespace WebApplication1.Services
         {
             _dbContext.Category.Add(category);
             _dbContext.SaveChanges();
+        }
+
+        public PageModel GetPageData()
+        {
+            PageModel pageModel = new PageModel();
+            pageModel.Categories = GetCategories();
+            pageModel.Articles = GetArticles();
+            pageModel.Images = GetImages();
+            return pageModel;
         }
     }
 }

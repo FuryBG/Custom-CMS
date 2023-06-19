@@ -15,22 +15,25 @@ namespace WebApplication1.Controllers
             _FileService = fileService;
             _CmsService = cmsService;
         }
-        public IActionResult Index(string fileName)
+        public IActionResult Index()
         {
-            return View();
+            PageModel pageModel = _CmsService.GetPageData();
+            return View(pageModel);
         }
         public IActionResult Categories()
         {
-            List<Category> categories = _CmsService.GetCategories();
-            return View(categories);
+            PageModel pageModel = _CmsService.GetPageData();
+            return View(pageModel);
         }
         public IActionResult Articles()
         {
-            return View();
+            PageModel pageModel = _CmsService.GetPageData();
+            return View(pageModel);
         }
         public IActionResult Images()
         {
-            return View();
+            PageModel pageModel = _CmsService.GetPageData();
+            return View(pageModel);
         }
 
         [Authorize]

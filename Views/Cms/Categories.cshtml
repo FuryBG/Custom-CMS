@@ -1,7 +1,4 @@
-﻿@model List<Category>
+﻿@model PageModel
 @{
-    foreach(Category cateogry in Model)
-    {
-        <h1>@cateogry.Title</h1>
-    }
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
 }

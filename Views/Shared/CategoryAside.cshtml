@@ -1,0 +1,12 @@
+﻿@model List<Category>
+@{
+
+}
+<div>
+    @{
+        foreach(Category category in Model)
+        {
+            <h3>@category.Title</h3>
+        }
+    }
+</div>
