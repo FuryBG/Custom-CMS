@@ -17,9 +17,11 @@ namespace WebApplication1.DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder
-            //.Entity<Category>
-            //().HasMany(x => x.Articles);
+            modelBuilder
+            .Entity<Category>().HasOne(x => x.Parent)
+            .WithMany(x => x.SubCategories)
+            .HasForeignKey(x => x.ParentId)
+            .IsRequired(false);
         }
 
     }

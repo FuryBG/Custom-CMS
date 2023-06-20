@@ -11,8 +11,8 @@ using WebApplication1.DataAccess;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(CmsDbContext))]
-    [Migration("20230619164520_AddedMainCmsEntitiesV1")]
-    partial class AddedMainCmsEntitiesV1
+    [Migration("20230620200136_InitMigration")]
+    partial class InitMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -72,7 +72,7 @@ namespace WebApplication1.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ParentId")
+                    b.Property<int?>("ParentId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
@@ -110,10 +110,9 @@ namespace WebApplication1.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("MainImageUrl")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ParentId")
+                    b.Property<int?>("ParentId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
@@ -128,6 +127,8 @@ namespace WebApplication1.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ParentId");
 
                     b.ToTable("Category");
                 });
@@ -153,7 +154,7 @@ namespace WebApplication1.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ParentId")
+                    b.Property<int?>("ParentId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
@@ -231,6 +232,15 @@ namespace WebApplication1.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("WebApplication1.Models.Category", b =>
+                {
+                    b.HasOne("WebApplication1.Models.Category", "Parent")
+                        .WithMany("SubCategories")
+                        .HasForeignKey("ParentId");
+
+                    b.Navigation("Parent");
+                });
+
             modelBuilder.Entity("WebApplication1.Models.Image", b =>
                 {
                     b.HasOne("WebApplication1.Models.Article", null)
@@ -241,6 +251,11 @@ namespace WebApplication1.Migrations
             modelBuilder.Entity("WebApplication1.Models.Article", b =>
                 {
                     b.Navigation("Images");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Category", b =>
+                {
+                    b.Navigation("SubCategories");
                 });
 #pragma warning restore 612, 618
         }

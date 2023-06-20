@@ -5,7 +5,7 @@
 namespace WebApplication1.Migrations
 {
     /// <inheritdoc />
-    public partial class AddedMainCmsEntitiesV1 : Migration
+    public partial class InitMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,7 +23,7 @@ namespace WebApplication1.Migrations
                     Type = table.Column<string>(type: "TEXT", nullable: false),
                     Keywords = table.Column<string>(type: "TEXT", nullable: false),
                     Code = table.Column<string>(type: "TEXT", nullable: false),
-                    ParentId = table.Column<int>(type: "INTEGER", nullable: false)
+                    ParentId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -36,18 +36,23 @@ namespace WebApplication1.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    MainImageUrl = table.Column<string>(type: "TEXT", nullable: false),
+                    MainImageUrl = table.Column<string>(type: "TEXT", nullable: true),
                     Title = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: false),
                     UserId = table.Column<int>(type: "INTEGER", nullable: false),
                     Type = table.Column<string>(type: "TEXT", nullable: false),
                     Keywords = table.Column<string>(type: "TEXT", nullable: false),
                     Code = table.Column<string>(type: "TEXT", nullable: false),
-                    ParentId = table.Column<int>(type: "INTEGER", nullable: false)
+                    ParentId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Category", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Category_Category_ParentId",
+                        column: x => x.ParentId,
+                        principalTable: "Category",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -79,7 +84,7 @@ namespace WebApplication1.Migrations
                     Type = table.Column<string>(type: "TEXT", nullable: false),
                     Keywords = table.Column<string>(type: "TEXT", nullable: false),
                     Code = table.Column<string>(type: "TEXT", nullable: false),
-                    ParentId = table.Column<int>(type: "INTEGER", nullable: false)
+                    ParentId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -143,6 +148,11 @@ namespace WebApplication1.Migrations
                 name: "IX_ArticleCategory_CategoriesId",
                 table: "ArticleCategory",
                 column: "CategoriesId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Category_ParentId",
+                table: "Category",
+                column: "ParentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CategoryImage_ImagesId",

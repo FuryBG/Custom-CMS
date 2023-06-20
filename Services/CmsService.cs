@@ -14,7 +14,22 @@ namespace WebApplication1.Services
 
         public List<Category>? GetCategories()
         {
-            return _dbContext.Category.ToList();
+            List<Category> categories = _dbContext.Category.Where(c => c.ParentId == null).Include(c => c.Articles).Include(c => c.Images).ToList();
+            foreach (Category category in categories)
+            {
+                category.SubCategories = GetChildren(category.Id);
+            }
+            return categories;
+        }
+
+        public List<Category> GetChildren(int? id)
+        {
+            List<Category> result = _dbContext.Category.Where(x => x.ParentId == id).Include(c => c.Articles).Include(c => c.Images).ToList<Category>();
+            foreach (var item in result)
+            {
+                item.SubCategories = GetChildren(item.Id);
+            }
+            return result;
         }
 
         public List<Article>? GetArticles()

@@ -22,7 +22,7 @@ namespace WebApplication1.Controllers
         }
         public IActionResult Category(int categoryId)
         {
-            PageModel pageModel = _CmsService.GetPageData();
+            PageModel pageModel =   _CmsService.GetPageData();
             return View(pageModel);
         }
         public IActionResult Article(int articleId)

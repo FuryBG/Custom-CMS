@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace WebApplication1.Models
 {
@@ -16,6 +17,5 @@ namespace WebApplication1.Models
         public string Type { get; set; }
         public string Keywords { get; set; }
         public string Code { get; set; }
-        public int ParentId { get; set; }
     }
 }
