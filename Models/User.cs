@@ -9,7 +9,7 @@ namespace WebApplication1.Models
     {
         public User()
         {
-
+            this.Role = "user";
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
