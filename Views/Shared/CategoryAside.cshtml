@@ -2,11 +2,20 @@
 @{
 
 }
+
 <div class="aside w-25 p-3">
     @{
-        foreach(Category category in Model)
+        foreach(Category parent in Model)
         {
-            <h3>@category.Title</h3>
+            <h3>@parent.Title</h3>
+            foreach(Category subCat in parent.SubCategories)
+            {
+                <h3>@subCat.Title</h3>
+                foreach (Category subSubCat in subCat.SubCategories)
+                {
+                    <h3>@subSubCat.Title</h3>
+                }
+            }
         }
     }
 </div>

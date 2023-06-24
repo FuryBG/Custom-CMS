@@ -14,11 +14,23 @@ namespace WebApplication1.Services
 
         public List<Category>? GetCategories()
         {
-            List<Category> categories = _dbContext.Category.Where(c => c.ParentId == null).Include(c => c.Articles).Include(c => c.Images).ToList();
-            foreach (Category category in categories)
-            {
-                category.SubCategories = GetChildren(category.Id);
-            }
+            List<Category> categories = _dbContext.Category
+                .Where(c => c.ParentId == null)
+                .Include(c => c.Articles)
+                .Include(c => c.Images)
+                .Include(c => c.SubCategories)
+                .ThenInclude(sc => sc.SubCategories)
+                .Include(c => c.SubCategories)
+                .ThenInclude(sc => sc.Articles)
+                .Include(c => c.SubCategories)
+                .ThenInclude(sc => sc.Images)
+                .Include(c => c.SubCategories)
+                .ThenInclude(sc => sc.SubCategories)
+                .ThenInclude(scc => scc.Articles)
+                .Include(c => c.SubCategories)
+                .ThenInclude(sc => sc.SubCategories)
+                .ThenInclude(ssc => ssc.Images).ToList();
+            
             return categories;
         }
 

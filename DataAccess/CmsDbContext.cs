@@ -5,7 +5,7 @@ namespace WebApplication1.DataAccess
 {
     public class CmsDbContext : DbContext
     {
-        public CmsDbContext(DbContextOptions<CmsDbContext> options): base(options)
+        public CmsDbContext(DbContextOptions<CmsDbContext> options) : base(options)
         { }
 
         public CmsDbContext() { }
@@ -22,6 +22,14 @@ namespace WebApplication1.DataAccess
             .WithMany(x => x.SubCategories)
             .HasForeignKey(x => x.ParentId)
             .IsRequired(false);
+
+            modelBuilder.Entity<User>()
+                .Property(x => x.Role)
+                .HasDefaultValue("user");
+
+            modelBuilder.Entity<User>()
+                .Property(x => x.Active)
+                .HasDefaultValue(1);
         }
 
     }
