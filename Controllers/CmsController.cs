@@ -23,6 +23,15 @@ namespace WebApplication1.Controllers
         public IActionResult Category(int categoryId)
         {
             PageModel pageModel =   _CmsService.GetPageData();
+            Category selectedCategory = _CmsService.GetCategoryById(categoryId);
+            pageModel.SelectedCategory = selectedCategory;
+            return View(pageModel);
+        }
+        [HttpPost]
+        public IActionResult Category(Category editedCategory)
+        {
+            _CmsService.UpdateCategory(editedCategory);
+            PageModel pageModel = _CmsService.GetPageData();
             return View(pageModel);
         }
         public IActionResult Article(int articleId)

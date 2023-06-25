@@ -2,20 +2,24 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     string controllerName = ViewContext.RouteData.Values["action"].ToString();
-
-    switch(controllerName)
-    {
-        case "Category":
-            <partial name="~/Views/Shared/CategoryAside.cshtml" model="@Model.Categories" />
-            break;
-        case "Article":
-            <partial name="~/Views/Shared/ArticleAside.cshtml" model="@Model.Articles" />
-            break;
-        case "Image":
-            <partial name="~/Views/Shared/ImageAside.cshtml" model="@Model.Images" />
-            break;
-        default: break;
+    <div class="d-flex">
+    @{
+            switch (controllerName)
+            {
+                case "Category":
+                    <partial name="~/Views/Shared/CategoryAside.cshtml" model="@Model.Categories" />
+                    break;
+                case "Article":
+                    <partial name="~/Views/Shared/ArticleAside.cshtml" model="@Model.Articles" />
+                    break;
+                case "Image":
+                    <partial name="~/Views/Shared/ImageAside.cshtml" model="@Model.Images" />
+                    break;
+                default: break;
+            }
     }
+
+    </div>
 }
 
 

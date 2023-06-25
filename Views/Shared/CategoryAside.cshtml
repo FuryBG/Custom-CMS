@@ -7,13 +7,22 @@
     @{
         foreach(Category parent in Model)
         {
-            <h3>@parent.Title</h3>
+            <div>
+                <a href="@Url.Action("Category", "Cms", new { categoryId = parent.Id })">@parent.Title</a>
+                <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = parent.Id }))">+</a>
+            </div>
             foreach(Category subCat in parent.SubCategories)
             {
-                <h3>@subCat.Title</h3>
+                <div>
+                    <a href="@Url.Action("Category", "Cms", new { categoryId = subCat.Id })">- @subCat.Title</a>
+                    <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = subCat.Id }))">+</a>
+                </div>
                 foreach (Category subSubCat in subCat.SubCategories)
                 {
-                    <h3>@subSubCat.Title</h3>
+                    <div>
+                        <a href="@Url.Action("Category", "Cms", new { categoryId = subSubCat.Id })">-- @subSubCat.Title</a>
+                        <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = subSubCat.Id }))">+</a>
+                    </div>
                 }
             }
         }
