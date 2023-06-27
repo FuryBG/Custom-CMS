@@ -1,12 +1,16 @@
-﻿@model List<Article>
+﻿@model List<Category>
 @{
 
 }
 <div class="aside w-25 p-3">
     @{
-        foreach (Article article in Model)
+        foreach (Category category in Model)
         {
-            <h3>@article.Title</h3>
+            <h3>@category.Title</h3>
+            foreach(Article article in category.Articles)
+            {
+                <h3>- @article.Title</h3>
+            }
         }
     }
 </div>

@@ -10,10 +10,10 @@
                     <partial name="~/Views/Shared/CategoryAside.cshtml" model="@Model.Categories" />
                     break;
                 case "Article":
-                    <partial name="~/Views/Shared/ArticleAside.cshtml" model="@Model.Articles" />
+                    <partial name="~/Views/Shared/ArticleAside.cshtml" model="@Model.Categories" />
                     break;
                 case "Image":
-                    <partial name="~/Views/Shared/ImageAside.cshtml" model="@Model.Images" />
+                    <partial name="~/Views/Shared/ImageAside.cshtml" model="@Model.Categories" />
                     break;
                 default: break;
             }
