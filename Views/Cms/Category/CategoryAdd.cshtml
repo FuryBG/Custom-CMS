@@ -7,6 +7,7 @@
         <form asp-action="CategoryAdd">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ParentId" />
+            <input type="hidden" asp-for="Type" value="category" />
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />

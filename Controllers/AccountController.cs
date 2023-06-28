@@ -22,8 +22,9 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            LoginUser loginUser = new LoginUser();
+            loginUser.ReturnUrl = returnUrl;
+            return View(loginUser);
         }
         [HttpPost]
         public async Task<IActionResult> Login(LoginUser loginUser)
