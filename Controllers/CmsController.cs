@@ -35,7 +35,7 @@ namespace WebApplication1.Controllers
             pageModel.SelectedCategory = editedCategory;
             return RedirectToAction("Category", new { categoryId = editedCategory.Id });
         }
-
+        [Authorize]
         public IActionResult CategoryAdd(int categoryId)
         {
             PageModel pageModel = _CmsService.GetPageData();
@@ -45,7 +45,7 @@ namespace WebApplication1.Controllers
             ViewBag.IsForAdd = true;
             return View("/Views/Cms/Category/Category.cshtml", pageModel);
         }
-
+        [Authorize]
         [HttpPost]
         public IActionResult CategoryAdd(Category addedCategory)
         {
