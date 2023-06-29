@@ -18,7 +18,9 @@ namespace WebApplication1
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
             builder.Services.AddDbContext<CmsDbContext>(options =>
             {
-                options.UseSqlite(builder.Configuration.GetConnectionString("AuthDbConnectionString"));
+                string connectionString = builder.Configuration.GetConnectionString("AuthDbConnectionString");
+                connectionString = connectionString.Replace("{path}", builder.Environment.ContentRootPath);
+                options.UseSqlite(connectionString);
             });
             builder.Services.AddScoped<AccountService, AccountService>();
             builder.Services.AddScoped<PasswordManager, PasswordManager>();

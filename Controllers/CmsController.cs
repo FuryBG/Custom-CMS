@@ -23,17 +23,47 @@ namespace WebApplication1.Controllers
         public IActionResult Category(int categoryId)
         {
             PageModel pageModel =   _CmsService.GetPageData();
-            return View(pageModel);
+            Category selectedCategory = _CmsService.GetCategoryById(categoryId);
+            pageModel.SelectedCategory = selectedCategory;
+            return View("/Views/Cms/Category/Category.cshtml",pageModel);
+        }
+        [HttpPost]
+        public IActionResult CategoryEdit(Category editedCategory)
+        {
+            _CmsService.UpdateCategory(editedCategory);
+            PageModel pageModel = _CmsService.GetPageData();
+            pageModel.SelectedCategory = editedCategory;
+            return RedirectToAction("Category", new { categoryId = editedCategory.Id });
+        }
+        [Authorize]
+        public IActionResult CategoryAdd(int categoryId)
+        {
+            PageModel pageModel = _CmsService.GetPageData();
+            Category category = new Category();
+            category.ParentId = categoryId;
+            pageModel.SelectedCategory = category;
+            ViewBag.IsForAdd = true;
+            return View("/Views/Cms/Category/Category.cshtml", pageModel);
+        }
+        [Authorize]
+        [HttpPost]
+        public IActionResult CategoryAdd(Category addedCategory)
+        {
+            addedCategory.Type = "category";
+            _CmsService.CreateCategory(addedCategory);
+            PageModel pageModel = _CmsService.GetPageData();
+            pageModel.SelectedCategory = addedCategory;
+            return RedirectToAction("Category", new { categoryId = addedCategory.Id });
         }
         public IActionResult Article(int articleId)
         {
             PageModel pageModel = _CmsService.GetPageData();
-            return View(pageModel);
+            return View("/Views/Cms/Article/Article.cshtml", pageModel);
         }
         public IActionResult Image(int imageId)
         {
             PageModel pageModel = _CmsService.GetPageData();
-            return View(pageModel);
+            return View("/Views/Cms/Image/Image.cshtml", pageModel);
         }
 
         [Authorize]

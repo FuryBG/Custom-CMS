@@ -1,0 +1,30 @@
+﻿@model List<Category>
+@{
+
+}
+
+<div class="aside w-25 p-3">
+    @{
+        foreach(Category parent in Model)
+        {
+            <div>
+                <a href="@Url.Action("Category", "Cms", new { categoryId = parent.Id })">@parent.Title</a>
+                <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = parent.Id })">+</a>
+            </div>
+            foreach(Category subCat in parent.SubCategories)
+            {
+                <div>
+                    <a href="@Url.Action("Category", "Cms", new { categoryId = subCat.Id })">- @subCat.Title</a>
+                    <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = subCat.Id })">+</a>
+                </div>
+                foreach (Category subSubCat in subCat.SubCategories)
+                {
+                    <div>
+                        <a href="@Url.Action("Category", "Cms", new { categoryId = subSubCat.Id })">-- @subSubCat.Title</a>
+                        <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = subSubCat.Id })">+</a>
+                    </div>
+                }
+            }
+        }
+    }
+</div>

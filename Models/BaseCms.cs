@@ -16,6 +16,6 @@ namespace WebApplication1.Models
         [Required]
         public string Type { get; set; }
         public string Keywords { get; set; }
-        public string Code { get; set; }
+        public string? Code { get; set; }
     }
 }

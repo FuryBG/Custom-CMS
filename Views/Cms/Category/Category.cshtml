@@ -1,0 +1,24 @@
+﻿@model PageModel
+@{
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+<div class="category-information">
+    @{
+        if (Model.SelectedCategory != null)
+        {
+            if (ViewBag.IsForAdd??false)
+            {
+                <partial name="~/Views/Cms/Category/CategoryAdd.cshtml" model="@Model.SelectedCategory" />
+            }
+            else
+            {
+                <partial name="~/Views/Cms/Category/CategoryEdit.cshtml" model="@Model.SelectedCategory" />
+            }
+        }
+        else
+        {
+            <h3>Select Category...</h3>
+        }
+    }
+
+</div>

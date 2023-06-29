@@ -1,0 +1,33 @@
+﻿@model WebApplication1.Models.Category
+
+<div class="flex-grow-1">
+    <form asp-action="CategoryAdd">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ParentId" />
+        <input type="hidden" asp-for="Type" value="category" />
+        <div class="form-group">
+            <label asp-for="Title" class="control-label"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="control-label"></label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Keywords" class="control-label"></label>
+            <input asp-for="Keywords" class="form-control" />
+            <span asp-validation-for="Keywords" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Code" class="control-label"></label>
+            <input asp-for="Code" class="form-control" />
+            <span asp-validation-for="Code" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
