@@ -3,26 +3,26 @@
     string action = ViewContext.RouteData.Values["action"].ToString();
 }
 
-<div class="aside">
+<div>
     <span>X</span>
     @{
         if (action.Contains("Category"))
         {
             foreach (Category parent in Model)
             {
-                <div class="aside-links-container">
+                <div>
                     <a href="@Url.Action("Category", "Cms", new { categoryId = parent.Id })">@parent.Title</a>
                     <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = parent.Id })">+</a>
                 </div>
                 foreach (Category subCat in parent.SubCategories)
                 {
-                    <div class="aside-sublinks-container">
+                    <div>
                         <a href="@Url.Action("Category", "Cms", new { categoryId = subCat.Id })">@subCat.Title</a>
                         <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = subCat.Id })">+</a>
                     </div>
                     foreach (Category subSubCat in subCat.SubCategories)
                     {
-                        <div class="aside-sub-sub-container">
+                        <div>
                             <a href="@Url.Action("Category", "Cms", new { categoryId = subSubCat.Id })">@subSubCat.Title</a>
                             <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = subSubCat.Id })">+</a>
                         </div>
@@ -34,13 +34,13 @@
         {
             foreach (Category parent in Model)
             {
-                <div class="aside-links-container">
+                <div>
                     <a>@parent.Title</a>
                     <a>+</a>
                     @{
                         foreach (Article article in parent.Articles)
                         {
-                            <div class="aside-sublinks-container">
+                            <div>
                                 <a href="@Url.Action("Category", "Cms", new { categoryId = article.Id })">@article.Title</a>
                                 <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = article.Id })">+</a>
                             </div>
@@ -49,13 +49,13 @@
                 </div>
                 foreach (Category subCat in parent.SubCategories)
                 {
-                    <div class="aside-sublinks-container">
+                    <div>
                         <a>@subCat.Title</a>
                         <a>+</a>
                         @{
                             foreach (Article article in subCat.Articles)
                             {
-                                <div class="aside-sublinks-container">
+                                <div>
                                     <a href="@Url.Action("Category", "Cms", new { categoryId = article.Id })">@article.Title</a>
                                     <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = article.Id })">+</a>
                                 </div>
@@ -65,13 +65,13 @@
 
                     foreach (Category subSubCat in subCat.SubCategories)
                     {
-                        <div class="aside-sub-sub-container">
+                        <div>
                             <a>@subSubCat.Title</a>
                             <a>+</a>
                             @{
                                 foreach (Article article in subSubCat.Articles)
                                 {
-                                    <div class="aside-sublinks-container">
+                                    <div>
                                         <a href="@Url.Action("Category", "Cms", new { categoryId = article.Id })">@article.Title</a>
                                         <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = article.Id })">+</a>
                                     </div>

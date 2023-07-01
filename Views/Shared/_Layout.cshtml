@@ -9,39 +9,39 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1 justify-content-center">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        <nav>
+            <div>
+                <div>
+                    <ul>
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         @{
                             if (User.Identity.IsAuthenticated)
                             {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Cms" asp-action="Index">Test</a>
+                                <li>
+                                    <a asp-area="" asp-controller="Cms" asp-action="Index">Test</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Cms" asp-action="Category">Categories</a>
+                                <li>
+                                    <a asp-area="" asp-controller="Cms" asp-action="Category">Categories</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Cms" asp-action="Article">Articles</a>
+                                <li>
+                                    <a asp-area="" asp-controller="Cms" asp-action="Article">Articles</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Cms" asp-action="Image">Images</a>
+                                <li>
+                                    <a asp-area="" asp-controller="Cms" asp-action="Image">Images</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                                <li>
+                                    <a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
                                 </li>
                             }
                             else
                             {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                                <li>
+                                    <a asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                                <li>
+                                    <a asp-area="" asp-controller="Account" asp-action="Register">Register</a>
                                 </li>
                             }
                         }
@@ -50,14 +50,14 @@
             </div>
         </nav>
     </header>
-    <div class="container-custom">
-        <main role="main" class="pb-3">
+    <div>
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
+    <footer>
+        <div>
             &copy; 2023 - WebApplication1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
