@@ -1,5 +1,6 @@
+@import './colors.scss';
 html {
     body {
-        color: red;
+        color: var($black);
     }
 }
