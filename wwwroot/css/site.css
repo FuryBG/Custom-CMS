@@ -1,3 +1,97 @@
-﻿html body {
-  color: var(#1e1e1e);
+﻿@import url("https://rsms.me/inter/inter-ui.css");
+::selection {
+  background: #2D2F36;
+}
+
+::-moz-selection {
+  background: #2D2F36;
+}
+
+body {
+  background: white;
+  font-family: "Inter UI", sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.login-page {
+  background: #e2e2e5;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 40px);
+  position: absolute;
+  place-content: center;
+  width: calc(100% - 40px);
+}
+.login-page .login-wrapper {
+  display: flex;
+  height: 320px;
+  margin: 0 auto;
+  width: 640px;
+}
+.login-page .left {
+  background: white;
+  height: calc(100% - 40px);
+  top: 20px;
+  position: relative;
+  width: 50%;
+}
+.login-page .left .login-text {
+  font-size: 50px;
+  font-weight: 900;
+  margin: 50px 40px 40px;
+}
+.login-page .left .text-info {
+  color: #999;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 40px;
+}
+.login-page .right {
+  background: #474A59;
+  box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
+  color: #F1F1F2;
+  position: relative;
+  width: 50%;
+}
+.login-page .right .form {
+  margin: 40px;
+  position: absolute;
+}
+.login-page .right label {
+  color: #c2c2c5;
+  display: block;
+  font-size: 14px;
+  height: 16px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+.login-page .right .input {
+  background: transparent;
+  border: 0;
+  color: #f2f2f2;
+  font-size: 20px;
+  height: 30px;
+  line-height: 30px;
+  outline: none !important;
+  width: 100%;
+  border-bottom: 3px solid #00FF00;
+}
+.login-page #submit {
+  color: #f2f2f2;
+  font-size: 20px;
+  height: 30px;
+  border-radius: 5px;
+  background: lime;
+  float: right;
+  width: 50%;
+  outline: none !important;
+  margin-top: 2em;
+  border: 1px solid lime;
+}
+.login-page #submit:focus {
+  color: #f2f2f2;
+}
+.login-page #submit:active {
+  color: #d0d0d2;
 }
