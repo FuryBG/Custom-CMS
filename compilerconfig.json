@@ -1,8 +1,14 @@
-[
+﻿[
   {
-    "inputFile": "wwwroot/css/site.scss",
     "outputFile": "wwwroot/css/site.css",
-    "includeInProject": true,
+    "inputFile": "wwwroot/css/site.scss",
+    "minify": {
+      "enabled": true
+    }
+  },
+  {
+    "outputFile": "wwwroot/js/site.min.js",
+    "inputFile": "wwwroot/js/site.js",
     "minify": {
       "enabled": true
     }
