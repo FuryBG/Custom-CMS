@@ -3,9 +3,9 @@
 
 // Write your JavaScript code.
 window.addEventListener("DOMContentLoaded", (event) => {
-    let aside = document.querySelector(".aside");
-    let asideCloseBtn = aside.querySelector("span");
+    let aside = document.querySelector(".second-menu-page");
+    let asideCloseBtn = aside.querySelector(".close-btn");
     asideCloseBtn.addEventListener("click", () => {
-        aside.classList.add("aside-hidden");
+        aside.classList.add(".hide-menu");
     });
 });
