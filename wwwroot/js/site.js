@@ -5,7 +5,13 @@
 window.addEventListener("DOMContentLoaded", (event) => {
     let aside = document.querySelector(".second-menu-page");
     let asideCloseBtn = aside.querySelector(".close-btn");
+    let asideOpenBtn = document.querySelector(".open-toggle");
     asideCloseBtn.addEventListener("click", () => {
-        aside.classList.add(".hide-menu");
+        aside.classList.add("hide-menu");
+        asideOpenBtn.style.visibility = "visible";
+    });
+    asideOpenBtn.addEventListener("click", () => {
+        aside.classList.remove("hide-menu");
+        asideOpenBtn.style.visibility = "hidden";
     });
 });

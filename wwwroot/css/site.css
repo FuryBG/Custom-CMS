@@ -28,7 +28,18 @@ a {
 }
 
 .hide-menu {
-  left: -200%;
+  margin-left: -50% !important;
+}
+
+.open-toggle {
+  color: var(--goldColor);
+  visibility: hidden;
+  transition: all 0.5s linear;
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 6rem;
+  left: 3rem;
 }
 
 .line {
@@ -75,6 +86,7 @@ a {
   font-size: 22px;
   padding: 1em 1em 1em 2em;
   border-right: 7px solid var(--goldColor);
+  transition: all 0.5s linear;
 }
 .second-menu-page > div {
   margin-top: 1em;

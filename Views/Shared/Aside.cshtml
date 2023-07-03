@@ -2,7 +2,7 @@
 @{
     string action = ViewContext.RouteData.Values["action"].ToString();
 }
-
+<span class="open-toggle">&#8801</span>
 <div class="second-menu-page">
     <span class="close-btn">X</span>
     @{
@@ -11,19 +11,19 @@
             foreach (Category parent in Model)
             {
                 <div class="main-cat">
-                    <a href="@Url.Action("Category", "Cms", new { categoryId = parent.Id })">@parent.Title</a>
-                    <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = parent.Id })">+ &#8595</a>
+                    <a href="@Url.Action("Category", "Cms", new { categoryId = parent.Id })">&#x21aa @parent.Title</a>
+                    <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = parent.Id })">+</a>
                 </div>
                 foreach (Category subCat in parent.SubCategories)
                 {
                     <div class="sub-cat">
-                        <a href="@Url.Action("Category", "Cms", new { categoryId = subCat.Id })">@subCat.Title</a>
-                        <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = subCat.Id })">+ &#8595</a>
+                        <a href="@Url.Action("Category", "Cms", new { categoryId = subCat.Id })">&#x21aa @subCat.Title</a>
+                        <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = subCat.Id })">+</a>
                     </div>
                     foreach (Category subSubCat in subCat.SubCategories)
                     {
                         <div class ="sub-sub-cat">
-                            <a href="@Url.Action("Category", "Cms", new { categoryId = subSubCat.Id })">@subSubCat.Title</a>
+                            <a href="@Url.Action("Category", "Cms", new { categoryId = subSubCat.Id })">&#x21aa @subSubCat.Title</a>
                             <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = subSubCat.Id })">+</a>
                         </div>
                     }
