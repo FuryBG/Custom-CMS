@@ -11,6 +11,12 @@
     background: #2D2F36;
 }
 
+.field-validation-error {
+    font-size: 12px;
+    font-weight: bold;
+    color: #fbc0ff;
+}
+
 body {
     background: white;
     font-family: 'Inter UI', sans-serif;
@@ -46,6 +52,7 @@ body {
             font-size: 50px;
             font-weight: 900;
             margin: 50px 40px 40px;
+            color: #A501BF;
         }
 
         .text-info {
@@ -71,10 +78,11 @@ body {
         label {
             color: #c2c2c5;
             display: block;
-            font-size: 14px;
+            font-size: 17px;
             height: 16px;
             margin-top: 20px;
             margin-bottom: 5px;
+            font-weight: bold;
         }
 
         .input {
@@ -86,7 +94,7 @@ body {
             line-height: 30px;
             outline: none !important;
             width: 100%;
-            border-bottom: 3px solid #00FF00;
+            border-bottom: 3px solid #A501BF;
         }
     }
 
@@ -95,19 +103,17 @@ body {
         font-size: 20px;
         height: 30px;
         border-radius: 5px;
-        background: lime;
+        background: #A501BF;
         float: right;
         width: 50%;
         outline: none !important;
         margin-top: 2em;
-        border:1px solid lime;
+        border: 1px solid #cb4cdf;
+        cursor:pointer;
     }
 
-    #submit:focus {
-        color: #f2f2f2;
-    }
-
-    #submit:active {
-        color: #d0d0d2;
+    #submit:hover, #submit:active {
+        color: #A501BF;
+        background: #f2f2f2;
     }
 }
