@@ -4,36 +4,28 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>Register</h1>
-<hr />
-<div>
-    <span>@ViewBag.ErrorMessage</span>
-    <div>
-        <form asp-action="Register">
-            <div asp-validation-summary="ModelOnly"></div>
-            <div>
+<div class="register-page">
+    <div class="register-wrapper">
+        <span>@ViewBag.ErrorMessage</span>
+    <div class="right">
+        <form asp-action="Register" class="form">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <label asp-for="Email"></label>
-                <input asp-for="Email"/>
+                <input class="input" asp-for="Email"/>
                 <span asp-validation-for="Email"></span>
-            </div>
-            <div>
                 <label asp-for="Password"></label>
-                <input asp-for="Password" type="password"/>
+                <input class="input" asp-for="Password" type="password"/>
                 <span asp-validation-for="Password"></span>
-            </div>
-            <div>
                 <label asp-for="RepeatPassword"></label>
-                <input asp-for="RepeatPassword" type="password"/>
+                <input class="input" asp-for="RepeatPassword" type="password"/>
                 <span asp-validation-for="RepeatPassword"></span>
-            </div>
-            <div>
-                <input type="submit" value="Register"/>
-            </div>
+                <input id="submit" type="submit" value="Register"/>
         </form>
+        </div>
+    <div class="left">
+        <div class="register-text">Register</div>
+        <div class="text-info">By logging in you agree to the ridiculously long terms that you didn't bother to read</div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
+    </div>
 </div>
 

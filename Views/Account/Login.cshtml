@@ -7,10 +7,10 @@
 <div class="login-wrapper">
     <div class="left">
         <div class="login-text">Login</div>
-            <div class="text-info">By logging in you agree to the ridiculously long terms that you didn't bother to read</div>
+        <div class="text-info">By logging in you agree to the ridiculously long terms that you didn't bother to read</div>
         </div>
         <span>@ViewBag.Error</span>
-        <div class="right">
+    <div class="right">
         <form asp-action="Login" class="form">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <label asp-for="Email"></label>
@@ -25,7 +25,3 @@
         </div>
     </div>
 </div>
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
