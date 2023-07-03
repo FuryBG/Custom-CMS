@@ -6,6 +6,7 @@
     --turquoiseColor: #178582;
     --goldColor: #BFA181;
     --white: white;
+    --dangerColor: red;
 }
 
 body {
@@ -26,7 +27,7 @@ a{
 .field-validation-error {
     font-size: 13px;
     font-weight: bold;
-    color: var(--turquoiseColor);
+    color: var(--dangerColor);
 }
 
 .hide-menu {
