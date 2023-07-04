@@ -1,4 +1,37 @@
 ﻿@model PageModel
 @{
     Layout = "~/Views/Shared/_PageLayout.cshtml";
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Created on</th>
+        </tr>
+        @{
+            if (Model.SelectedCategory != null)
+            {
+                foreach (Article article in Model.SelectedCategory.Articles)
+                {
+                    <tr>
+                        <th>@article.Title</th>
+                        <th>@article.Description</th>
+                        //Should be changed to creation date when update db.
+                        <th>@article.Keywords</th>
+                    </tr>
+                }
+            }
+            else
+            {
+                foreach (Article article in Model.Articles)
+                {
+                    <tr>
+                        <th>@article.Title</th>
+                        <th>@article.Description</th>
+                        //Should be changed to creation date when update db.
+                        <th>@article.Keywords</th>
+                    </tr>
+                }
+            }
+        }
+    </table>
 }

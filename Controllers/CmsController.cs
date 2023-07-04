@@ -20,6 +20,7 @@ namespace WebApplication1.Controllers
             PageModel pageModel = _CmsService.GetPageData();
             return View(pageModel);
         }
+        [Authorize]
         public IActionResult Category(int categoryId)
         {
             PageModel pageModel =   _CmsService.GetPageData();
@@ -27,6 +28,7 @@ namespace WebApplication1.Controllers
             pageModel.SelectedCategory = selectedCategory;
             return View("/Views/Cms/Category/Category.cshtml",pageModel);
         }
+        [Authorize]
         [HttpPost]
         public IActionResult CategoryEdit(Category editedCategory)
         {
@@ -55,11 +57,13 @@ namespace WebApplication1.Controllers
             pageModel.SelectedCategory = addedCategory;
             return RedirectToAction("Category", new { categoryId = addedCategory.Id });
         }
+        [Authorize]
         public IActionResult Article(int articleId)
         {
             PageModel pageModel = _CmsService.GetPageData();
             return View("/Views/Cms/Article/Article.cshtml", pageModel);
         }
+        [Authorize]
         public IActionResult Image(int imageId)
         {
             PageModel pageModel = _CmsService.GetPageData();

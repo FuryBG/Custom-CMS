@@ -24,59 +24,6 @@
                     {
                         <div class ="sub-sub-cat">
                             <a href="@Url.Action("Category", "Cms", new { categoryId = subSubCat.Id })">&#x21aa @subSubCat.Title</a>
-                            <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = subSubCat.Id })">+</a>
-                        </div>
-                    }
-                }
-            }
-        }
-        else if (action.Contains("Article"))
-        {
-            foreach (Category parent in Model)
-            {
-                <div>
-                    <a>@parent.Title</a>
-                    <a>+</a>
-                    @{
-                        foreach (Article article in parent.Articles)
-                        {
-                            <div>
-                                <a href="@Url.Action("Category", "Cms", new { categoryId = article.Id })">@article.Title</a>
-                                <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = article.Id })">+</a>
-                            </div>
-                        }
-                    }
-                </div>
-                foreach (Category subCat in parent.SubCategories)
-                {
-                    <div>
-                        <a>@subCat.Title</a>
-                        <a>+</a>
-                        @{
-                            foreach (Article article in subCat.Articles)
-                            {
-                                <div>
-                                    <a href="@Url.Action("Category", "Cms", new { categoryId = article.Id })">@article.Title</a>
-                                    <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = article.Id })">+</a>
-                                </div>
-                            }
-                        }
-                    </div>
-
-                    foreach (Category subSubCat in subCat.SubCategories)
-                    {
-                        <div>
-                            <a>@subSubCat.Title</a>
-                            <a>+</a>
-                            @{
-                                foreach (Article article in subSubCat.Articles)
-                                {
-                                    <div>
-                                        <a href="@Url.Action("Category", "Cms", new { categoryId = article.Id })">@article.Title</a>
-                                        <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = article.Id })">+</a>
-                                    </div>
-                                }
-                            }
                         </div>
                     }
                 }

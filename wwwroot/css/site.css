@@ -79,6 +79,10 @@ a {
   background: var(--turquoiseColor);
 }
 
+.page-container {
+  display: flex;
+}
+
 .second-menu-page {
   background: var(--primeColor);
   display: flex;
