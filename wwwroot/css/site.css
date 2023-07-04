@@ -36,7 +36,8 @@ a {
   color: var(--goldColor);
   visibility: hidden;
   transition: all 0.5s linear;
-  font-size: 2rem;
+  font-size: 35px;
+  font-weight: bold;
   cursor: pointer;
   position: absolute;
   top: 6rem;
@@ -100,7 +101,7 @@ a {
   display: flex;
   justify-content: right;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 35px;
   color: var(--goldColor);
   font-weight: bold;
 }
