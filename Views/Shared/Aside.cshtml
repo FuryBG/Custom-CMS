@@ -6,26 +6,23 @@
 <div class="second-menu-page">
     <span class="close-btn">&#8656;</span>
     @{
-        if (action.Contains("Category"))
+        foreach (Category parent in Model)
         {
-            foreach (Category parent in Model)
+            <div class="main-cat">
+                <a href="@Url.Action("Category", "Cms", new { categoryId = parent.Id })">&#x21aa @parent.Title</a>
+                <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = parent.Id })">+</a>
+            </div>
+            foreach (Category subCat in parent.SubCategories)
             {
-                <div class="main-cat">
-                    <a href="@Url.Action("Category", "Cms", new { categoryId = parent.Id })">&#x21aa @parent.Title</a>
-                    <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = parent.Id })">+</a>
+                <div class="sub-cat">
+                    <a href="@Url.Action("Category", "Cms", new { categoryId = subCat.Id })">&#x21aa @subCat.Title</a>
+                    <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = subCat.Id })">+</a>
                 </div>
-                foreach (Category subCat in parent.SubCategories)
+                foreach (Category subSubCat in subCat.SubCategories)
                 {
-                    <div class="sub-cat">
-                        <a href="@Url.Action("Category", "Cms", new { categoryId = subCat.Id })">&#x21aa @subCat.Title</a>
-                        <a href="@Url.Action("CategoryAdd", "Cms", new { categoryId = subCat.Id })">+</a>
+                    <div class="sub-sub-cat">
+                        <a href="@Url.Action("Category", "Cms", new { categoryId = subSubCat.Id })">&#x21aa @subSubCat.Title</a>
                     </div>
-                    foreach (Category subSubCat in subCat.SubCategories)
-                    {
-                        <div class ="sub-sub-cat">
-                            <a href="@Url.Action("Category", "Cms", new { categoryId = subSubCat.Id })">&#x21aa @subSubCat.Title</a>
-                        </div>
-                    }
                 }
             }
         }
