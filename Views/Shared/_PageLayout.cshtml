@@ -3,7 +3,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     string controllerName = ViewContext.RouteData.Values["action"].ToString();
     <div class="page-container">
-        <partial name="~/Views/Shared/Aside.cshtml" model="@Model.Categories" />
+        @{
+            if (controllerName.Contains("Category"))
+            {
+                <partial name="~/Views/Shared/CategoryAside.cshtml" model="@Model.Categories" />
+            }
+            else if (controllerName.Contains("Article"))
+            {
+                <partial name="~/Views/Shared/ArticleAside.cshtml" model="@Model.Categories" />
+            }
+        }
         @RenderBody()
     </div>
 }

@@ -64,6 +64,13 @@ namespace WebApplication1.Controllers
             return View("/Views/Cms/Article/Article.cshtml", pageModel);
         }
         [Authorize]
+        public IActionResult ArticleList(int categoryId)
+        {
+            PageModel pageModel = _CmsService.GetPageData();
+            pageModel.SelectedCategory = _CmsService.GetCategoryById(categoryId);
+            return View("/Views/Cms/Article/ArticleList.cshtml", pageModel);
+        }
+        [Authorize]
         public IActionResult Image(int imageId)
         {
             PageModel pageModel = _CmsService.GetPageData();
