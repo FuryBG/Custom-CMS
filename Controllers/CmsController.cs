@@ -26,7 +26,7 @@ namespace WebApplication1.Controllers
             PageModel pageModel =   _CmsService.GetPageData();
             Category selectedCategory = _CmsService.GetCategoryById(categoryId);
             pageModel.SelectedCategory = selectedCategory;
-            return View("/Views/Cms/Category/Category.cshtml",pageModel);
+            return View("/Views/Cms/Category/Category.cshtml", pageModel);
         }
         [Authorize]
         [HttpPost]

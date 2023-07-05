@@ -104,7 +104,7 @@ a{
     padding: 1em 1em 1em 2em;
     border-right:7px solid var(--goldColor);
     transition: all 0.5s linear;
-    position:absolute;
+    position:fixed;
 
     > div {
         margin-top: 1em;
@@ -331,12 +331,12 @@ a{
     }
 }
 
-.add-category-page {
+.category-page-form-container {
     margin-top: 5em;
     padding: 3em;
     background: var(--goldColor);
     border-radius: 5px;
-    height:70%;
+    height: 70%;
 
     label {
         color: var(--turquoiseColor);

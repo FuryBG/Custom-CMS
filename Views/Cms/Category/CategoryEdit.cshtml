@@ -1,6 +1,6 @@
 ﻿@model WebApplication1.Models.Category
 
-<div>
+<div class="category-page-form-container">
     <form asp-action="CategoryEdit">
         <div asp-validation-summary="ModelOnly"></div>
         <input type="hidden" asp-for="Id" />
@@ -8,31 +8,27 @@
         <input type="hidden" asp-for="Type" />
         <div>
             <label asp-for="Title"></label>
-            <input asp-for="Title"/>
+            <input class="input" asp-for="Title" />
             <span asp-validation-for="Title"></span>
         </div>
         <div>
             <label asp-for="Description"></label>
-            <input asp-for="Description"/>
+            <input class="input" asp-for="Description" />
             <span asp-validation-for="Description"></span>
         </div>
         <div>
             <label asp-for="Keywords"></label>
-            <input asp-for="Keywords"/>
+            <input class="input" asp-for="Keywords" />
             <span asp-validation-for="Keywords"></span>
         </div>
         <div>
             <label asp-for="Code"></label>
-            <input asp-for="Code"/>
+            <input class="input" asp-for="Code" />
             <span asp-validation-for="Code"></span>
         </div>
         <div>
-            <input type="submit" value="Save"/>
+            <input id="submit" type="submit" value="Save"/>
         </div>
     </form>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 

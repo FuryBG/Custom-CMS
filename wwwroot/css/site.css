@@ -97,7 +97,7 @@ a {
   padding: 1em 1em 1em 2em;
   border-right: 7px solid var(--goldColor);
   transition: all 0.5s linear;
-  position: absolute;
+  position: fixed;
 }
 .second-menu-page > div {
   margin-top: 1em;
@@ -296,14 +296,14 @@ a {
   border: 1px solid var(--turquoiseColor);
 }
 
-.add-category-page {
+.category-page-form-container {
   margin-top: 5em;
   padding: 3em;
   background: var(--goldColor);
   border-radius: 5px;
   height: 70%;
 }
-.add-category-page label {
+.category-page-form-container label {
   color: var(--turquoiseColor);
   display: block;
   font-size: 17px;
@@ -312,7 +312,7 @@ a {
   margin-bottom: 5px;
   font-weight: bold;
 }
-.add-category-page .input {
+.category-page-form-container .input {
   background: transparent;
   border: 0;
   font-size: 20px;
@@ -322,7 +322,7 @@ a {
   width: 100%;
   border-bottom: 3px solid var(--turquoiseColor);
 }
-.add-category-page #submit {
+.category-page-form-container #submit {
   color: var(--goldColor);
   font-weight: bold;
   font-size: 20px;
@@ -337,7 +337,7 @@ a {
   cursor: pointer;
   width: 100%;
 }
-.add-category-page #submit:hover, .add-category-page #submit:active {
+.category-page-form-container #submit:hover, .category-page-form-container #submit:active {
   background: var(--white);
   border: 1px solid var(--goldColor);
   color: var(--goldColor);

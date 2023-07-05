@@ -8,7 +8,7 @@
         {
             if (ViewBag.IsForAdd??false)
             {
-                <partial name="~/Views/Cms/Category/CategoryAdd.cshtml" model="@Model.SelectedCategory" />
+                <partial name="~/Views/Cms/Category/CategoryAdd.cshtml" model="new Category()" />
             }
             else
             {
