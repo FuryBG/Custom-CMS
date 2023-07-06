@@ -23,7 +23,7 @@ namespace WebApplication1.Controllers
         [Authorize]
         public IActionResult Category(int categoryId)
         {
-            PageModel pageModel =   _CmsService.GetPageData();
+            PageModel pageModel = _CmsService.GetPageData();
             Category selectedCategory = _CmsService.GetCategoryById(categoryId);
             pageModel.SelectedCategory = selectedCategory;
             return View("/Views/Cms/Category/Category.cshtml", pageModel);
@@ -58,10 +58,33 @@ namespace WebApplication1.Controllers
             return RedirectToAction("Category", new { categoryId = addedCategory.Id });
         }
         [Authorize]
-        public IActionResult Article(int articleId)
+        public IActionResult ArticleEdit(int articleId)
         {
             PageModel pageModel = _CmsService.GetPageData();
-            return View("/Views/Cms/Article/Article.cshtml", pageModel);
+            pageModel.SelectedArticle = _CmsService.GetArticleById(articleId);
+            return View("/Views/Cms/Article/ArticleEdit.cshtml", pageModel);
+        }
+        [HttpPost]
+        [Authorize]
+        public IActionResult ArticleEdit(Article article)
+        {
+            PageModel pageModel = _CmsService.GetPageData();
+            //TODO LOGIC SAVING ARTICLE
+            return View("/Views/Cms/Article/ArticleEdit.cshtml", pageModel);
+        }
+        [Authorize]
+        public IActionResult ArticleAdd()
+        {
+            PageModel pageModel = _CmsService.GetPageData();
+            return View("/Views/Cms/Article/ArticleAdd.cshtml", pageModel);
+        }
+        [HttpPost]
+        [Authorize]
+        public IActionResult ArticleAdd(Article article)
+        {
+            PageModel pageModel = _CmsService.GetPageData();
+            //TODO LOGIC SAVING ARTICLE
+            return View("/Views/Cms/Article/ArticleAdd.cshtml", pageModel);
         }
         [Authorize]
         public IActionResult ArticleList(int categoryId)

@@ -71,6 +71,11 @@ namespace WebApplication1.Services
             _dbContext.SaveChanges();
         }
 
+        public Article? GetArticleById(int articleId)
+        {
+            return _dbContext.Article.Where(c => c.Id == articleId).FirstOrDefault();
+        }
+
         public PageModel GetPageData()
         {
             PageModel pageModel = new PageModel();

@@ -1,0 +1,47 @@
+﻿@model PageModel
+@{
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    foreach(Category category in Model.Categories)
+    {
+        listItems.Add(new SelectListItem() { Selected = false, Text = category.Title, Value = category.Id.ToString()  });
+    }
+    var selectList = new SelectList(listItems);
+}
+
+<h3>ARTICLE ADD</h3>
+<div class="category-page-form-container">
+    <span class="close-btn">&#10006;</span>
+    <form asp-action="CategoryAdd">
+        <div asp-validation-summary="ModelOnly"></div>
+        <input type="hidden" asp-for="SelectedArticle.Type" value="category" />
+        <div>
+            <label asp-for="SelectedArticle.Title"></label>
+            <input class="input" asp-for="SelectedArticle.Title" />
+            <span asp-validation-for="SelectedArticle.Title"></span>
+        </div>
+        <div>
+            <label asp-for="SelectedArticle.Description"></label>
+            <input class="input" asp-for="SelectedArticle.Description" />
+            <span asp-validation-for="SelectedArticle.Description"></span>
+        </div>
+        <div>
+            <label asp-for="SelectedArticle.Keywords"></label>
+            <input class="input" asp-for="SelectedArticle.Keywords" />
+            <span asp-validation-for="SelectedArticle.Keywords"></span>
+        </div>
+        <div>
+            <label asp-for="SelectedArticle.Code"></label>
+            <input class="input" asp-for="SelectedArticle.Code" />
+            <span asp-validation-for="SelectedArticle.Code"></span>
+        </div>
+        <div>
+            <select asp-items="listItems">
+                <option>Select Category</option>
+            </select>
+        </div>
+        <div>
+            <input id="submit" type="submit" value="Create" />
+        </div>
+    </form>
+</div>
