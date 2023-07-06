@@ -355,6 +355,52 @@ a {
   color: var(--goldColor);
 }
 
+.article-page {
+  border-collapse: collapse;
+  margin: 5em 0;
+  color: var(--goldColor);
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+}
+.article-page th, .article-page td {
+  padding: 12px 15px;
+}
+.article-page thead {
+  border: 3px solid var(--turquoiseColor);
+}
+.article-page thead tr {
+  background-color: var(--turquoiseColor);
+  text-align: left;
+}
+.article-page tbody {
+  border: 3px solid var(--turquoiseColor);
+}
+.article-page tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+.article-page tbody tr:hover {
+  background: white;
+}
+.article-page tbody tr:nth-of-type(even) {
+  background-color: rgba(209, 209, 209, 0.4784313725);
+}
+.article-page tbody tr:nth-of-type(even):hover {
+  background: var(--white);
+}
+.article-page tbody .pencil {
+  padding: 0.2em 0.4em;
+  font-size: 17px;
+  cursor: pointer;
+  background: var(--goldColor);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+}
+.article-page tbody .pencil:hover {
+  background: var(--turquoiseColor);
+}
+
 .footer-page {
   position: fixed;
   bottom: 0;

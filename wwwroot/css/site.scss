@@ -396,6 +396,63 @@ a{
     }
 }
 
+.article-page {
+    border-collapse: collapse;
+    margin: 5em 0;
+    color: var(--goldColor);
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+
+    th, td {
+        padding: 12px 15px;
+    }
+
+    thead {
+        border: 3px solid var(--turquoiseColor);
+
+        tr {
+            background-color: var(--turquoiseColor);
+            text-align: left;
+        }
+    }
+
+    tbody {
+        border: 3px solid var(--turquoiseColor);
+
+        tr {
+            border-bottom: 1px solid #dddddd;
+
+            &:hover {
+                background: white;
+            }
+        }
+
+
+        tr:nth-of-type(even) {
+            background-color: #d1d1d17a;
+
+            &:hover {
+                background:var(--white);
+            }
+        }
+
+        .pencil {
+            padding: 0.2em 0.4em;
+            font-size: 17px;
+            cursor: pointer;
+            background: var(--goldColor);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+
+            &:hover {
+                background: var(--turquoiseColor);
+            }
+        }
+    }
+}
+
 .footer-page {
     position: fixed;
     bottom: 0;

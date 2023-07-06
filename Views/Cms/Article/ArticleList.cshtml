@@ -1,12 +1,16 @@
 ﻿@model PageModel
 @{
     Layout = "~/Views/Shared/_PageLayout.cshtml";
-    <table>
+    <table class="article-page">
+    <thead>
         <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Created on</th>
+            <th>TITLE</th>
+            <th>DESCRIPTION</th>
+            <th>CREATED ON</th>
+            <th>EDIT</th>
         </tr>
+    </thead>
+    <tbody class="body">
         @{
             if (Model.SelectedCategory != null)
             {
@@ -27,9 +31,11 @@
                         <th>@article.Title</th>
                         <th>@article.Description</th>
                         <th>@article.Keywords</th>
+                            <th><buttom class="pencil">&#9998;</buttom></th>
                     </tr>
                 }
             }
         }
+        </tbody>
     </table>
 }

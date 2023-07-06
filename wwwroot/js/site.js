@@ -21,5 +21,5 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let editClose = editCat.querySelector(".close-btn");
     editClose.addEventListener("click", () => {
         location.replace("https://localhost:7299/Cms/Category")
-    })
-})
+    });
+});
