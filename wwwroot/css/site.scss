@@ -333,10 +333,24 @@ a{
 
 .category-page-form-container {
     margin-top: 5em;
-    padding: 3em;
+    padding: 0 3em;
     background: var(--goldColor);
     border-radius: 5px;
-    height: 70%;
+    height: 90%;
+
+    .close-btn{
+        color:var(--turquoiseColor);
+        cursor:pointer;
+        position:relative;
+        width:100%;
+        top:3px;
+        left:265px;
+        font-size:20px;
+
+        &:hover{
+            color:var(--white);
+        }
+    }
 
     label {
         color: var(--turquoiseColor);

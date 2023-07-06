@@ -1,6 +1,7 @@
 ﻿@model WebApplication1.Models.Category
 
 <div class="category-page-form-container">
+    <span class="close-btn">&#10006;</span>
     <form asp-action="CategoryEdit">
         <div asp-validation-summary="ModelOnly"></div>
         <input type="hidden" asp-for="Id" />

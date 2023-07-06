@@ -15,3 +15,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
         asideOpenBtn.style.visibility = "hidden";
     });
 });
+
+window.addEventListener("DOMContentLoaded", (event) => {
+    let editCat = document.querySelector(".category-page-form-container");
+    let editClose = editCat.querySelector(".close-btn");
+    editClose.addEventListener("click", () => {
+        location.replace("https://localhost:7299/Cms/Category")
+    })
+})
