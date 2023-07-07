@@ -92,6 +92,28 @@ a{
 
 .page-container {
     display: flex;
+
+    .add-art-btn {
+        position: fixed;
+        margin-top: 0.7em;
+        background: var(--goldColor);
+        padding: 1em 4em;
+        border-radius: 10px;
+        color: var(--white);
+        position: fixed;
+        margin-top: 0.7em;
+        background: var(--goldColor);
+        padding: 1em 4em;
+        border-radius: 10px;
+
+        > a {
+            color: var(--white);
+        }
+
+        &:hover {
+            background: var(--turquoiseColor);
+        }
+    }
 }
 
 .second-menu-page {
@@ -396,6 +418,101 @@ a{
     }
 }
 
+.article-page-form-container {
+    margin-top: 5em;
+    padding: 0 3em 3em 3em;
+    background: var(--goldColor);
+    border-radius: 5px;
+    height: 90%;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .close-btn {
+        color: var(--turquoiseColor);
+        cursor: pointer;
+        position: relative;
+        top: 3px;
+        left: 38px;
+        font-size: 20px;
+
+        &:hover {
+            color: var(--white);
+        }
+    }
+
+    label {
+        color: var(--turquoiseColor);
+        display: block;
+        font-size: 17px;
+        height: 16px;
+        margin-top: 20px;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .input {
+        background: transparent;
+        border: 0;
+        font-size: 20px;
+        height: 30px;
+        line-height: 30px;
+        outline: none !important;
+        width: 100%;
+        border-bottom: 3px solid var(--turquoiseColor);
+    }
+
+    .list-cat {
+        > select {
+            border: none;
+            margin-top: 0.5em;
+            border-radius: 5px;
+            background: var(--turquoiseColor);
+            color: var(--goldColor);
+            width: 100%;
+            text-align: center;
+            padding: 0.3em 0;
+            font-weight: bold;
+            font-size: 17px;
+
+            > option {
+                margin-top: 0.2em;
+                padding: 0.2em;
+                background: var(--goldColor);
+                color: var(--white);
+
+                &:hover {
+                    background: red;
+                }
+            }
+        }
+    }
+
+    #submit {
+        color: var(--goldColor);
+        font-weight: bold;
+        font-size: 20px;
+        height: 30px;
+        border-radius: 5px;
+        background: var(--turquoiseColor);
+        float: right;
+        width: 50%;
+        outline: none !important;
+        margin-top: 2em;
+        border: 1px solid var(--turquoiseColor);
+        cursor: pointer;
+        width: 100%;
+    }
+
+    #submit:hover, #submit:active {
+        background: var(--white);
+        border: 1px solid var(--goldColor);
+        color: var(--goldColor)
+    }
+}
+
 .article-page {
     border-collapse: collapse;
     margin: 5em 0;
@@ -403,6 +520,21 @@ a{
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;
+
+    .add-art-btn {
+        position: fixed;
+        margin-top: 0.7em;
+        background: var(--goldColor);
+        padding: 1em 4em;
+        border-radius: 10px;
+        color: var(--white);
+        position: fixed;
+        margin-top: 0.7em;
+        background: var(--goldColor);
+        padding: 1em 4em;
+        border-radius: 10px;
+        color: var(--white);
+    }
 
     th, td {
         padding: 12px 15px;
@@ -413,7 +545,7 @@ a{
 
         tr {
             background-color: var(--turquoiseColor);
-            text-align: left;
+            text-align: center;
         }
     }
 
@@ -433,11 +565,11 @@ a{
             background-color: #d1d1d17a;
 
             &:hover {
-                background:var(--white);
+                background: var(--white);
             }
         }
 
-        .pencil {
+        .pencil, .trash {
             padding: 0.2em 0.4em;
             font-size: 17px;
             cursor: pointer;
@@ -450,6 +582,12 @@ a{
                 background: var(--turquoiseColor);
             }
         }
+    }
+
+    .action-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
     }
 }
 

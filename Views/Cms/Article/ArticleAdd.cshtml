@@ -9,9 +9,11 @@
     var selectList = new SelectList(listItems);
 }
 
-<h3>ARTICLE ADD</h3>
-<div class="category-page-form-container">
+<div class="article-page-form-container">
+    <div class="header">
+    <h3>ARTICLE ADD</h3>
     <span class="close-btn">&#10006;</span>
+    </div>
     <form asp-action="CategoryAdd">
         <div asp-validation-summary="ModelOnly"></div>
         <input type="hidden" asp-for="SelectedArticle.Type" value="category" />
@@ -35,7 +37,7 @@
             <input class="input" asp-for="SelectedArticle.Code" />
             <span asp-validation-for="SelectedArticle.Code"></span>
         </div>
-        <div>
+        <div class="list-cat">
             <select asp-items="listItems">
                 <option>Select Category</option>
             </select>

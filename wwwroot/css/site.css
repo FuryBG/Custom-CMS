@@ -86,6 +86,25 @@ a {
 .page-container {
   display: flex;
 }
+.page-container .add-art-btn {
+  position: fixed;
+  margin-top: 0.7em;
+  background: var(--goldColor);
+  padding: 1em 4em;
+  border-radius: 10px;
+  color: var(--white);
+  position: fixed;
+  margin-top: 0.7em;
+  background: var(--goldColor);
+  padding: 1em 4em;
+  border-radius: 10px;
+}
+.page-container .add-art-btn > a {
+  color: var(--white);
+}
+.page-container .add-art-btn:hover {
+  background: var(--turquoiseColor);
+}
 
 .second-menu-page {
   background: var(--primeColor);
@@ -355,6 +374,89 @@ a {
   color: var(--goldColor);
 }
 
+.article-page-form-container {
+  margin-top: 5em;
+  padding: 0 3em 3em 3em;
+  background: var(--goldColor);
+  border-radius: 5px;
+  height: 90%;
+}
+.article-page-form-container .header {
+  display: flex;
+  justify-content: space-between;
+}
+.article-page-form-container .close-btn {
+  color: var(--turquoiseColor);
+  cursor: pointer;
+  position: relative;
+  top: 3px;
+  left: 38px;
+  font-size: 20px;
+}
+.article-page-form-container .close-btn:hover {
+  color: var(--white);
+}
+.article-page-form-container label {
+  color: var(--turquoiseColor);
+  display: block;
+  font-size: 17px;
+  height: 16px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.article-page-form-container .input {
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+  height: 30px;
+  line-height: 30px;
+  outline: none !important;
+  width: 100%;
+  border-bottom: 3px solid var(--turquoiseColor);
+}
+.article-page-form-container .list-cat > select {
+  border: none;
+  margin-top: 0.5em;
+  border-radius: 5px;
+  background: var(--turquoiseColor);
+  color: var(--goldColor);
+  width: 100%;
+  text-align: center;
+  padding: 0.3em 0;
+  font-weight: bold;
+  font-size: 17px;
+}
+.article-page-form-container .list-cat > select > option {
+  margin-top: 0.2em;
+  padding: 0.2em;
+  background: var(--goldColor);
+  color: var(--white);
+}
+.article-page-form-container .list-cat > select > option:hover {
+  background: red;
+}
+.article-page-form-container #submit {
+  color: var(--goldColor);
+  font-weight: bold;
+  font-size: 20px;
+  height: 30px;
+  border-radius: 5px;
+  background: var(--turquoiseColor);
+  float: right;
+  width: 50%;
+  outline: none !important;
+  margin-top: 2em;
+  border: 1px solid var(--turquoiseColor);
+  cursor: pointer;
+  width: 100%;
+}
+.article-page-form-container #submit:hover, .article-page-form-container #submit:active {
+  background: var(--white);
+  border: 1px solid var(--goldColor);
+  color: var(--goldColor);
+}
+
 .article-page {
   border-collapse: collapse;
   margin: 5em 0;
@@ -362,6 +464,20 @@ a {
   font-size: 0.9em;
   font-family: sans-serif;
   min-width: 400px;
+}
+.article-page .add-art-btn {
+  position: fixed;
+  margin-top: 0.7em;
+  background: var(--goldColor);
+  padding: 1em 4em;
+  border-radius: 10px;
+  color: var(--white);
+  position: fixed;
+  margin-top: 0.7em;
+  background: var(--goldColor);
+  padding: 1em 4em;
+  border-radius: 10px;
+  color: var(--white);
 }
 .article-page th, .article-page td {
   padding: 12px 15px;
@@ -371,7 +487,7 @@ a {
 }
 .article-page thead tr {
   background-color: var(--turquoiseColor);
-  text-align: left;
+  text-align: center;
 }
 .article-page tbody {
   border: 3px solid var(--turquoiseColor);
@@ -388,7 +504,7 @@ a {
 .article-page tbody tr:nth-of-type(even):hover {
   background: var(--white);
 }
-.article-page tbody .pencil {
+.article-page tbody .pencil, .article-page tbody .trash {
   padding: 0.2em 0.4em;
   font-size: 17px;
   cursor: pointer;
@@ -397,8 +513,13 @@ a {
   border: none;
   border-radius: 5px;
 }
-.article-page tbody .pencil:hover {
+.article-page tbody .pencil:hover, .article-page tbody .trash:hover {
   background: var(--turquoiseColor);
+}
+.article-page .action-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .footer-page {
