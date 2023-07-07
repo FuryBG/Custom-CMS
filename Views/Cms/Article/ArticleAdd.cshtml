@@ -1,50 +1,42 @@
-﻿@model PageModel
-@{
-    Layout = "~/Views/Shared/_PageLayout.cshtml";
-    List<SelectListItem> listItems = new List<SelectListItem>();
-    foreach(Category category in Model.Categories)
-    {
-        listItems.Add(new SelectListItem() { Selected = false, Text = category.Title, Value = category.Id.ToString()  });
-    }
-    var selectList = new SelectList(listItems);
-}
+﻿@using WebApplication1.Models.Dto;
+@model ArticleDto
 
 <div class="article-page-form-container">
     <div class="header">
     <h3>ARTICLE ADD</h3>
         <a asp-controller="Cms" asp-action="ArticleList" class="close-btn">&#10006;</a>
     </div>
-    <form asp-action="CategoryAdd">
+    <form asp-action="ArticleAdd">
         <div asp-validation-summary="ModelOnly"></div>
-        <input type="hidden" asp-for="SelectedArticle.Type" value="category" />
+        <input type="hidden" asp-for="Type" value="article" />
         <div>
-            <label asp-for="SelectedArticle.Title"></label>
-            <input class="input" asp-for="SelectedArticle.Title" />
-            <span asp-validation-for="SelectedArticle.Title"></span>
+            <label asp-for="Title"></label>
+            <input class="input" asp-for="Title" />
+            <span asp-validation-for="Title"></span>
         </div>
         <div>
-            <label asp-for="SelectedArticle.Description"></label>
-            <input class="input" asp-for="SelectedArticle.Description" />
-            <span asp-validation-for="SelectedArticle.Description"></span>
+            <label asp-for="Description"></label>
+            <input class="input" asp-for="Description" />
+            <span asp-validation-for="Description"></span>
         </div>
         <div>
-            <label asp-for="SelectedArticle.Keywords"></label>
-            <input class="input" asp-for="SelectedArticle.Keywords" />
-            <span asp-validation-for="SelectedArticle.Keywords"></span>
+            <label asp-for="Keywords"></label>
+            <input class="input" asp-for="Keywords" />
+            <span asp-validation-for="Keywords"></span>
         </div>
         <div>
-            <label asp-for="SelectedArticle.Code"></label>
-            <input class="input" asp-for="SelectedArticle.Code" />
-            <span asp-validation-for="SelectedArticle.Code"></span>
+            <label asp-for="Code"></label>
+            <input class="input" asp-for="Code" />
+            <span asp-validation-for="Code"></span>
         </div>
         <div class="list-cat">
-            <select asp-items="listItems">
+            <select asp-items="Model.AvailableCategoriesList" asp-for="AddedCategory">
                 <option>Select Category</option>
             </select>
         </div>
         <div class="selected-cats">
             @{
-                foreach (Category category in Model.SelectedArticle.Categories)
+                foreach (Category category in Model.Categories)
                 {
                     <span>@category.Title</span>
                 }

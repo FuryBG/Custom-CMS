@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using WebApplication1.Models;
 using WebApplication1.Models.Dto;
 using WebApplication1.Services;
@@ -63,7 +64,7 @@ namespace WebApplication1.Controllers
         {
             PageModel pageModel = _CmsService.GetPageData();
             pageModel.SelectedArticle = (ArticleDto)_CmsService.GetArticleById(articleId);
-            return View("/Views/Cms/Article/ArticleEdit.cshtml", pageModel);
+            return View("/Views/Cms/Article/ArticleEditLayout.cshtml", pageModel);
         }
         [HttpPost]
         [Authorize]
@@ -84,11 +85,17 @@ namespace WebApplication1.Controllers
         public IActionResult ArticleAdd()
         {
             PageModel pageModel = _CmsService.GetPageData();
-            return View("/Views/Cms/Article/ArticleAdd.cshtml", pageModel);
+            pageModel.SelectedArticle = new ArticleDto();
+            foreach (Category category in pageModel.Categories)
+            {
+                pageModel.SelectedArticle.AvailableCategoriesList.Add(new SelectListItem() { Selected = false, Text = category.Title, Value = category.Id.ToString() });
+            }
+
+            return View("/Views/Cms/Article/ArticleAddLayout.cshtml", pageModel);
         }
         [HttpPost]
         [Authorize]
-        public IActionResult ArticleAdd(Article article)
+        public IActionResult ArticleAdd(ArticleDto article)
         {
             PageModel pageModel = _CmsService.GetPageData();
             //TODO LOGIC SAVING ARTICLE
