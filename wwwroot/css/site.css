@@ -516,6 +516,9 @@ a {
 .article-page tbody .pencil:hover, .article-page tbody .trash:hover {
   background: var(--turquoiseColor);
 }
+.article-page tbody .trash {
+  padding: 0.2em 0.55em !important;
+}
 .article-page .action-wrapper {
   width: 100%;
   display: flex;

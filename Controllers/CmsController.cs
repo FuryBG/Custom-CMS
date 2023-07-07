@@ -73,6 +73,13 @@ namespace WebApplication1.Controllers
             return View("/Views/Cms/Article/ArticleEdit.cshtml", pageModel);
         }
         [Authorize]
+        public IActionResult ArticleDelete(int articleId)
+        {
+            PageModel pageModel = _CmsService.GetPageData();
+            _CmsService.DeleteArticleById(articleId);
+            return RedirectToAction("ArticleList");
+        }
+        [Authorize]
         public IActionResult ArticleAdd()
         {
             PageModel pageModel = _CmsService.GetPageData();

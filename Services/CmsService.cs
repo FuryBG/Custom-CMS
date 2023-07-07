@@ -30,7 +30,7 @@ namespace WebApplication1.Services
                 .Include(c => c.SubCategories)
                 .ThenInclude(sc => sc.SubCategories)
                 .ThenInclude(ssc => ssc.Images).ToList();
-            
+
             return categories;
         }
 
@@ -84,5 +84,12 @@ namespace WebApplication1.Services
             pageModel.Images = GetImages();
             return pageModel;
         }
+
+        public void DeleteArticleById(int articleId)
+        {
+            _dbContext.Article.Where(a => a.Id == articleId).ExecuteDelete();
+            _dbContext.SaveChanges();
+        }
     }
+
 }

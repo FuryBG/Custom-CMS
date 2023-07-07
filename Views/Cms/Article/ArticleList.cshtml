@@ -23,7 +23,7 @@
                             <th>@article.Title</th>
                             <th>@article.Description</th>
                             <th>@article.Keywords</th>
-                            <th><div><a asp-controller="Cms" asp-action="ArticleEdit" as-route-articleId="@article.Id" class="pencil">&#9998;</a><a class="trash">&#128465;</a></div></th>
+                            <th><div><a asp-controller="Cms" asp-action="ArticleEdit" asp-route-articleId="@article.Id" class="pencil">&#9998;</a><a class="trash">&#128465;</a></div></th>
                         </tr>
                     }
                 }
@@ -35,7 +35,7 @@
                             <th>@article.Title</th>
                             <th>@article.Description</th>
                             <th>@article.Keywords</th>
-                             <th><div class="action-wrapper"><a asp-controller="Cms" asp-action="ArticleEdit" as-route-articleId="@article.Id" class="pencil">&#9998;</a><a class="trash">&#128465;</a></div></th>
+                            <th><div class="action-wrapper"><a asp-controller="Cms" asp-action="ArticleEdit" asp-route-articleId="@article.Id" class="pencil">&#9998;</a><a asp-controller="Cms" asp-action="ArticleDelete" asp-route-articleId="@article.Id" class="trash">&#128465;</a></div></th>
                         </tr>
                     }
                 }
