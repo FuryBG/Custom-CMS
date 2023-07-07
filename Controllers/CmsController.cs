@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models;
+using WebApplication1.Models.Dto;
 using WebApplication1.Services;
 
 namespace WebApplication1.Controllers
@@ -61,7 +62,7 @@ namespace WebApplication1.Controllers
         public IActionResult ArticleEdit(int articleId)
         {
             PageModel pageModel = _CmsService.GetPageData();
-            pageModel.SelectedArticle = _CmsService.GetArticleById(articleId);
+            pageModel.SelectedArticle = (ArticleDto)_CmsService.GetArticleById(articleId);
             return View("/Views/Cms/Article/ArticleEdit.cshtml", pageModel);
         }
         [HttpPost]

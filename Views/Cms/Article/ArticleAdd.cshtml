@@ -42,6 +42,14 @@
                 <option>Select Category</option>
             </select>
         </div>
+        <div class="selected-cats">
+            @{
+                foreach (Category category in Model.SelectedArticle.Categories)
+                {
+                    <span>@category.Title</span>
+                }
+            }
+        </div>
         <div>
             <input id="submit" type="submit" value="Create" />
         </div>
