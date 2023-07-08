@@ -76,6 +76,24 @@ namespace WebApplication1.Services
             return _dbContext.Article.Where(c => c.Id == articleId).FirstOrDefault();
         }
 
+        public void CreateArticle(Article article)
+        {
+            _dbContext.Article.Add(article);
+            _dbContext.SaveChanges();
+        }
+
+        public void UpdateArticle(Article article)
+        {
+            _dbContext.Article.Update(article);
+            _dbContext.SaveChanges();
+        }
+
+        public void DeleteArticleById(int articleId)
+        {
+            _dbContext.Article.Where(a => a.Id == articleId).ExecuteDelete();
+            _dbContext.SaveChanges();
+        }
+
         public PageModel GetPageData()
         {
             PageModel pageModel = new PageModel();
@@ -83,12 +101,6 @@ namespace WebApplication1.Services
             pageModel.Articles = GetArticles();
             pageModel.Images = GetImages();
             return pageModel;
-        }
-
-        public void DeleteArticleById(int articleId)
-        {
-            _dbContext.Article.Where(a => a.Id == articleId).ExecuteDelete();
-            _dbContext.SaveChanges();
         }
     }
 

@@ -63,21 +63,44 @@ namespace WebApplication1.Controllers
         public IActionResult ArticleEdit(int articleId)
         {
             PageModel pageModel = _CmsService.GetPageData();
-            pageModel.SelectedArticle = (ArticleDto)_CmsService.GetArticleById(articleId);
+            Article article = _CmsService.GetArticleById(articleId);
+            pageModel.SelectedArticle = new ArticleDto()
+            {
+                Id = article.Id,
+                Title = article.Title,
+                Type = article.Type,
+                Categories = article.Categories,
+                Code = article.Code,
+                Description = article.Description,
+                Images = article.Images,
+                Keywords = article.Keywords,
+                UserId = article.UserId,
+            };
+
+            foreach (Category category in pageModel.Categories)
+            {
+                pageModel.SelectedArticle.AvailableCategoriesList.Add(new SelectListItem() { Selected = false, Text = category.Title, Value = category.Id.ToString() });
+            }
             return View("/Views/Cms/Article/ArticleEditLayout.cshtml", pageModel);
         }
         [HttpPost]
         [Authorize]
-        public IActionResult ArticleEdit(Article article)
+        public IActionResult ArticleEdit(ArticleDto articleDto)
         {
             PageModel pageModel = _CmsService.GetPageData();
-            //TODO LOGIC SAVING ARTICLE
-            return View("/Views/Cms/Article/ArticleEdit.cshtml", pageModel);
+            Article editedArticle = pageModel.Articles.FirstOrDefault(x => x.Id == articleDto.Id);
+            editedArticle.Categories.Add(pageModel.Categories.FirstOrDefault(c => c.Id == int.Parse(articleDto.AddedCategory)));
+            editedArticle.Title = articleDto.Title;
+            editedArticle.Type = articleDto.Type;
+            editedArticle.Keywords = articleDto.Keywords;
+            editedArticle.Description = articleDto.Description;
+            editedArticle.Images = articleDto.Images;
+            _CmsService.UpdateArticle(editedArticle);
+            return View("/Views/Cms/Article/ArticleList.cshtml", pageModel);
         }
         [Authorize]
         public IActionResult ArticleDelete(int articleId)
         {
-            PageModel pageModel = _CmsService.GetPageData();
             _CmsService.DeleteArticleById(articleId);
             return RedirectToAction("ArticleList");
         }
@@ -95,11 +118,13 @@ namespace WebApplication1.Controllers
         }
         [HttpPost]
         [Authorize]
-        public IActionResult ArticleAdd(ArticleDto article)
+        public IActionResult ArticleAdd(ArticleDto articleDto)
         {
             PageModel pageModel = _CmsService.GetPageData();
-            //TODO LOGIC SAVING ARTICLE
-            return View("/Views/Cms/Article/ArticleAdd.cshtml", pageModel);
+            articleDto.Categories.Add(pageModel.Categories.FirstOrDefault(c => c.Id == int.Parse(articleDto.AddedCategory)));
+            _CmsService.CreateArticle(articleDto);
+            pageModel.Articles.Add(articleDto);
+            return View("/Views/Cms/Article/ArticleList.cshtml", pageModel);
         }
         [Authorize]
         public IActionResult ArticleList(int categoryId)
@@ -108,6 +133,7 @@ namespace WebApplication1.Controllers
             pageModel.SelectedCategory = _CmsService.GetCategoryById(categoryId);
             return View("/Views/Cms/Article/ArticleList.cshtml", pageModel);
         }
+
         [Authorize]
         public IActionResult Image(int imageId)
         {
