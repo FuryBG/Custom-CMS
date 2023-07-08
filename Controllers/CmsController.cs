@@ -64,18 +64,7 @@ namespace WebApplication1.Controllers
         {
             PageModel pageModel = _CmsService.GetPageData();
             Article article = _CmsService.GetArticleById(articleId);
-            pageModel.SelectedArticle = new ArticleDto()
-            {
-                Id = article.Id,
-                Title = article.Title,
-                Type = article.Type,
-                Categories = article.Categories,
-                Code = article.Code,
-                Description = article.Description,
-                Images = article.Images,
-                Keywords = article.Keywords,
-                UserId = article.UserId,
-            };
+            pageModel.SelectedArticle = ArticleDto.ToArticleDto(article);
 
             foreach (Category category in pageModel.Categories)
             {
@@ -89,14 +78,17 @@ namespace WebApplication1.Controllers
         {
             PageModel pageModel = _CmsService.GetPageData();
             Article editedArticle = pageModel.Articles.FirstOrDefault(x => x.Id == articleDto.Id);
-            editedArticle.Categories.Add(pageModel.Categories.FirstOrDefault(c => c.Id == int.Parse(articleDto.AddedCategory)));
-            editedArticle.Title = articleDto.Title;
-            editedArticle.Type = articleDto.Type;
-            editedArticle.Keywords = articleDto.Keywords;
-            editedArticle.Description = articleDto.Description;
-            editedArticle.Images = articleDto.Images;
+            Article article = ArticleDto.ToArticle(articleDto, editedArticle);
+            if (int.TryParse(articleDto.AddedCategory, out int addedCategoryId))
+            {
+                article.Categories.Add(pageModel.Categories.FirstOrDefault(c => c.Id == addedCategoryId));
+            }
+            if (int.TryParse(articleDto.AddedImage, out int addedImageId))
+            {
+                article.Images.Add(pageModel.Images.FirstOrDefault(i => i.Id == addedImageId));
+            }
             _CmsService.UpdateArticle(editedArticle);
-            return View("/Views/Cms/Article/ArticleList.cshtml", pageModel);
+            return RedirectToAction("ArticleList");
         }
         [Authorize]
         public IActionResult ArticleDelete(int articleId)
